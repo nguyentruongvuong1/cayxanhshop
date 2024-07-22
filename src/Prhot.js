@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function Showsphot() {
   const [listsp, ganlistsp] = useState([]);
-  const [color, gancolor] = useState('white');
 
   useEffect(() => {
     let url = "http://localhost:3000/sphot";
@@ -24,9 +23,29 @@ function Showsphot() {
       .then((data) => console.log(data));
   };
 
-  const tim = () => {
-    gancolor(color === 'white' ? 'red' : 'white');
-  };
+  
+  const Prlike = (id) => {
+    let url = `http://localhost:3000/likepr/${id}`;
+    let opt = { method: 'POST', body: JSON.stringify({}), headers: { 'Content-Type': 'application/json' } };
+
+    fetch(url, opt)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // Cập nhật trạng thái like của sản phẩm trong danh sách
+            ganlistsp(sp => {
+                const timsp = sp.map(p => p.id === id ? { ...p, like: p.like === 1 ? 0 : 1 } : p);
+                const product = timsp.find(p => p.id === id);
+                if (product) {
+                    alert(product.like === 1 ? "Bạn đã thích sản phẩm" : "Bạn đã hủy thích sản phẩm");
+                }
+                return timsp;
+            });
+        })
+     
+}
+
+
 
   return (
     <div id="listnewpr" className="main-product">
@@ -43,11 +62,11 @@ function Showsphot() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
-                fill={color}
                 className="bi bi-heart-fill"
                 viewBox="0 0 16 16"
-                onClick={() => tim()}
-                cursor={'pointer'}
+                fill={p.like === 1 ? 'red' : 'white'}
+                onClick={() => Prlike(p.id)}
+                cursor='pointer'
               >
                 <path
                   fillRule="evenodd"
