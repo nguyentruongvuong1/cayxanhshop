@@ -18,7 +18,7 @@ function Showsplike() {
             ganlistsp(sp => sp.map(p => p.id === id ? {...p, like: p.like === 1 ? 0 : 1} : p), alert("Bạn đã hủy thích sản phẩm thành công"), window.location.reload( )  
         ))
         }else return;
-    
+        
     }
 
 

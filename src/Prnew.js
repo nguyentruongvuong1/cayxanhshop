@@ -9,14 +9,28 @@ function Showspnew() {
     }, []);
 
     
-    const Prlike = (id) =>{
+    const Prlike = (id) => {
         let url = `http://localhost:3000/likepr/${id}`;
-        let opt = {method:'post', body: JSON.stringify({}), headers:{'Content':'application/json'}}
-        fetch(url,opt).then(res =>res.json()).then(data => console.log(data),
-        ganlistsp(sp => sp.map(p => p.id === id ? {...p, like: p.like === 1 ? 0 : 1} : p))
-    )
+        let opt = { method: 'POST', body: JSON.stringify({}), headers: { 'Content-Type': 'application/json' } };
+    
+        fetch(url, opt)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // Cập nhật trạng thái like của sản phẩm trong danh sách
+                ganlistsp(sp => {
+                    const timsp = sp.map(p => p.id === id ? { ...p, like: p.like === 1 ? 0 : 1 } : p);
+                    const product = timsp.find(p => p.id === id);
+                    if (product) {
+                        alert(product.like === 1 ? "Bạn đã thích sản phẩm" : "Bạn đã hủy thích sản phẩm");
+                    }
+                    return timsp;
+                });
+            })
+         
     }
-
+    
+    
     const tangluotxem = (id) =>{
         let url = `http://localhost:3000/tangluotxem/${id}`;
         let opt = { method:'post' , body: JSON.stringify({}), headers:{"Content-Type":'application/json'} }
@@ -37,10 +51,15 @@ function Showspnew() {
                 <p className="product_moi">Mới</p>
                 <Link to={"sp/"+ p.id} onClick={() => tangluotxem(p.id)}>
                     <img src={p.img} alt={p.name}/> </Link>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill={p.like === 1 ? 'red': 'white'} onClick={() => Prlike(p.id)} cursor={'pointer'} className="bi bi-heart-fill"
-                    viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-                </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
+     fill={p.like === 1 ? 'red' : 'white'} 
+     onClick={() => Prlike(p.id)}
+     cursor="pointer" 
+     className="bi bi-heart-fill"
+     viewBox="0 0 16 16">
+    <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+</svg>
+
                 <button className="product-mn" onClick={() => tangluotxem(p.id)} ><Link to={"sp/" +p.id} className="xct">Xem chi tiết</Link></button>
             </div>
             <div className="product-name-price">
