@@ -10,6 +10,7 @@ function ShowCart(props) {
     return tong + sp.so_luong * sp.price;
   }, 0);
 
+
   const handleKeyPress = (event) => {
     // Chỉ cho phép nhập số dương và phím Backspace
     const charCode = event.which ? event.which : event.keyCode;
@@ -18,6 +19,14 @@ function ShowCart(props) {
     } else {
       event.preventDefault();
       return false;
+    }
+  };
+
+  const handleBlur = (event, id) => {
+    const value = event.target.value;
+    if (value === "" || parseInt(value) <= 0) {
+      event.target.value = 1;
+      dispatch(suaSL([id, 1]));
     }
   };
 
@@ -46,7 +55,7 @@ function ShowCart(props) {
                   </td>
                   <td>{Number(sp.price).toLocaleString("vi")} VNĐ</td>
                   <td>
-                    <input type="number" min={1} style={{width:'40px'}}  defaultValue={sp.so_luong} onChange={(e) => dispatch(suaSL([sp.id, parseInt(e.target.value)]))}  onKeyPress={handleKeyPress}/>
+                    <input type="number" min={1} style={{width:'40px'}}  defaultValue={sp.so_luong} onChange={(e) => dispatch(suaSL([sp.id, parseInt(e.target.value)]))} onBlur={(e) =>{handleBlur(e, sp.id)}} onKeyPress={handleKeyPress}/>
                   </td>
                   <td><button className="tb_xoa" onClick={() => dispatch(XoaSP(sp.id))}>Xóa</button></td>
                 </tr>

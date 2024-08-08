@@ -2,6 +2,9 @@ import Showspnew from "./Prnew";
 import Showsphot from "./Prhot";
 import ShowCate from "./Cate";
 import SearchPr from "./SearchPr";
+import Showspcate1 from "./PrCt1";
+import Showspcate3 from "./PrCt3";
+import Showspcate8 from "./PrCt8";
 function Main() {
     return(
         <div>
@@ -19,6 +22,9 @@ function Main() {
         <SearchPr/>
         <Showspnew/>
         <Showsphot/>
+        <Showspcate1/>
+        <Showspcate3/>
+        <Showspcate8/>
         </div>
     )
 }

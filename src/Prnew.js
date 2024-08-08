@@ -50,7 +50,7 @@ function Showspnew() {
             <div className="product-con">
                 <p className="product_moi">Mới</p>
                 <Link to={"sp/"+ p.id} onClick={() => tangluotxem(p.id)}>
-                    <img src={p.img} alt={p.name}/> </Link>
+                    <img src={p.img.startsWith('./public/Images') ? `http://localhost:3000/${p.img}` :p.img  } alt={p.name}/> </Link>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" 
      fill={p.like === 1 ? 'red' : 'white'} 
      onClick={() => Prlike(p.id)}

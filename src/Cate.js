@@ -16,7 +16,7 @@ function ShowCate() {
         {
             listcate.map( (cate, index) => 
                 <div className="nav-dmsp-main-con" key={index}>
-                <Link to={"/cate/" + cate.id}> <img src={cate.img} alt="" /> </Link>
+                <Link to={"/cate/" + cate.id}> <img src={cate.img.startsWith('./public/Images') ? `http://localhost:3000/${cate.img}` :cate.img  } alt="" /> </Link>
                 <p>{cate.name}</p>
                 </div>
             )

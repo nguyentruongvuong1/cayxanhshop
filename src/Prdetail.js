@@ -5,6 +5,7 @@ import Binhluan from "./Binhluan";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { themSP } from "./cartSlice";
+
 function ShowdetalPr() {
     let { id } = useParams();
     const dispatch = useDispatch()
@@ -12,6 +13,7 @@ function ShowdetalPr() {
     const [product, ganproduct] = useState({});
     const [splq, gansplq] = useState([]);
     const [binhluan, laybinhluan] = useState([]);
+  
 
     useEffect(() => {
         let url = `http://localhost:3000/sp/${id}`;
@@ -19,6 +21,7 @@ function ShowdetalPr() {
 
         fetch(`http://localhost:3000/splq/${id}`).then(res => res.json()).then(data => gansplq(data));
         fetch(`http://localhost:3000/show_binh_luan/${id}`).then(res => res.json()).then(data => laybinhluan(data));
+        window.scrollTo(0, 0);
     }, [id]);
 
     return (
@@ -26,7 +29,7 @@ function ShowdetalPr() {
             <div className="detail-sp" key={product.id}>
                 <div className="detail-img">
                     <h1>{product.name}</h1>
-                    <img src={product.img} alt="" />
+                    <img src={ product.img && product.img.startsWith('./public/Images') ? `http://localhost:3000/${product.img}` : product.img} alt={product.name} />
                 </div>
                 <div className="detail-tt">
                     <p style={{ color: 'black' }}><strong>Giá :</strong> {product.price} VNĐ </p>
@@ -59,7 +62,7 @@ function ShowdetalPr() {
                         <div style={{paddingTop:'20px'}}>
                                 <p style={{fontSize:'20px'}}>Bạn hãy là người bình luận đầu tiên.</p>
                             </div>
-                    ) : ( 
+                    ) :( 
                     
                         binhluan.map((bl, index) => {
                             const Ngay = moment(bl.ngay).format('YYYY-MM-DD HH:mm:ss');
@@ -91,7 +94,7 @@ function ShowdetalPr() {
                         <div className="product" key={index}>
                             <div className="product-con">
                                 <Link to={"/sp/" + sp.id}>
-                                    <img src={sp.img} alt={sp.name} />
+                                    <img src={sp.img.startsWith('./public/Images') ? `http://localhost:3000/${sp.img}` :sp.img  } alt={sp.name} />
                                 </Link>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill"
                                     viewBox="0 0 16 16">

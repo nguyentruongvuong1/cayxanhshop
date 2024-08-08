@@ -3,6 +3,7 @@ import { XoaSP } from "./cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { XoaGH } from "./cartSlice";
 function Thanhtoan() {
     let navigate = useNavigate()
     const dispatch = useDispatch()
@@ -55,6 +56,8 @@ function Thanhtoan() {
 
     const luuxongsp = (data) =>{console.log(data)
         dispatch(XoaSP(data.id_sp))
+        dispatch(XoaGH())
+
     }
     return(
         <form id="frmthanhtoan" >

@@ -8,13 +8,12 @@
 }
 
 .main_user {
-  margin-top: 5px;
+  margin-top: 10px;
   margin-left: 1400px;
   cursor: pointer;
   position: absolute; 
   width: auto;
   display: inline-block; /* Giữ phần tử bên trong khối chính xác */
-
 }
 
 .main_user i {
@@ -65,9 +64,46 @@
 
 }
 
+.user_name{
+  margin-left: -45px;
+  font-weight: bold;
+}
+
 .main_user:hover .main_user_an {
   display: block; /* Hiển thị khi di chuột qua */
 }
+
+.btn-xt{
+  text-align: center;
+  /* margin-bottom: 20px; */
+}
+
+.btn-xt button{
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #00791c;
+  border: 1px solid #00791c;
+  transition: background-color 0.3s ease;
+}
+
+.Link-xt{
+ text-decoration: none;
+ color: white; 
+ transition: color 0.3s ease;
+
+}
+
+.btn-xt button:hover{
+  background-color: #00791cdf;
+}
+
+.Link-xt:hover{
+  color: black;
+}
+
+
+
 
 
 .hello{
@@ -332,7 +368,7 @@ color: black;
  margin-left: 10px;
  margin-right: 10px;
   border: 2px solid white;
-  background-color: white;
+  background-color: #FAF0E6;
   height: auto;
   text-align: center;
   margin-bottom: 20px;
@@ -589,20 +625,14 @@ footer{
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   
-  form {
-      display: grid;
-      grid-gap: 20px;
-  }
+
   
   .form-group {
       display: flex;
       flex-direction: column;
       margin-bottom: 10px;
   }
-  
-  label {
-      margin-bottom: 5px;
-  }
+
   
   .formthanhtoan input{
       padding: 10px;
@@ -943,9 +973,9 @@ background-color: rgba(255, 0, 0, 0.66);
     border-radius: 5px;
     background-color: #f9f9f9;
     margin-left: 570px;
-      padding-left: 70px;   
-      margin-top: -10px; 
-      margin-top: 50px;
+    padding-left: 70px;   
+    margin-top: -10px; 
+    margin-top: 50px;
   }
 
 
@@ -960,29 +990,461 @@ background-color: rgba(255, 0, 0, 0.66);
   display: block;
   font-weight: bold;
   font-size: larger;
+  margin-bottom: 5px;
 }  
 
-.form input{
+.form .input{
   display: block;
-  margin-bottom: 5px;
-  height: 35px;
+  margin-bottom: 15px;
+  height: 40px;
   width: 400px;
   border-radius: 5px;
+  border: 0.5px solid black;
+
 }
 
 .form button{
   display: block;
-  margin-bottom: 5px;
-  height: 40px;
+  height: 50px;
   width: 400px;
   border-radius: 5px;
   cursor: pointer;
   background-color: #224229;
- 
+  margin-top: 20px;
   margin-bottom: 20px;
   color: white;
+  transition: background-color 0.3s ease ;
+  transition: color 0.3s ease ;
 }
 
 .form button:hover{
   color: black;
+  background-color: #07bb31;
+  border: 1px solid #07bb31;
 }
+
+.cart_sosp{
+  position: absolute;
+  font-size: 15px;
+  border-radius: 50%;
+  width: 20px;
+  height: 22px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  margin-top: -20px;
+  margin-left: 35px;
+
+}
+
+.icon_cart{
+  color: #00791c;
+  transition: color 0.3s ease;
+}
+
+.icon_cart:hover{
+  color: #00791c79;
+
+}
+
+
+
+.hearder_admin h3{
+  margin-top: 15px;
+  margin-left: 10px;
+}
+.admin_user{
+  position: absolute;
+  margin-left: 1150px;
+  margin-top: 25px;
+}
+.hearder_admin{
+    height: 50px;
+    display: flex;
+    border-bottom: 3px solid black;
+    margin-left: -8px;
+    padding-left: 5px;
+    align-items: center;
+    margin-top: -8px;
+    }
+    
+    .hearder_admin h3{
+      margin-top: 15px;
+      margin-left: 10px;
+    }
+    
+    
+    .hearder_admin span{
+    color: #00791c;
+    }
+    
+    .hearder_admin .bi-list{
+    padding-top: 5px;
+    margin-left: 22px;
+    }
+    
+    
+    
+    /* NAV NAV */
+    .nav_admin a{
+        display: block;
+        text-decoration: none;
+        color: white;
+    }
+    
+    
+    
+    .nav_admin{
+    float: left;
+    width: 250px;
+    margin-left: -8px;
+    background-color: #224229;
+    height: 690px;
+    display: block;
+    }
+    
+    
+    
+    .nav_admin_link{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    height: 50px;
+    cursor: pointer;
+    }
+    
+    .nav_admin_link i{
+    margin-right: 20px;
+       font-size: 30px;
+       color: white;
+    align-items: center;
+    
+    }
+    
+    
+    .nav_admin_link:hover{
+        background-color: gray;
+    }
+    
+    .nav_admin_link:hover a{
+        color: black;
+    }
+    
+    
+    .link_dashboard{
+        display: flex;
+        padding-left: 5px;
+    }
+    
+    .link_dashboard p{
+        margin-left: 5px;
+        margin-top: 13px;
+    }
+    
+    .link_dashboard a{
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.462);
+    }
+    
+    .link_dashboard a:hover{
+        color: black;
+        
+    }
+    
+    
+    .tbsp{
+        /* padding-top: 30px; */
+        /* padding-left: 15%; */
+        width: 100%;
+    }
+    
+
+    .admin_showsp a{
+      text-decoration: none;
+      color: black;
+   
+    }
+
+  
+    
+    .admin_showsp{
+        border: 2px solid rgba(0, 0, 0, 0.214);  
+        text-align: center;
+        width: 60%;
+        position: absolute;
+        margin-left: 320px;
+        border-collapse: collapse;
+    
+    }
+    
+    .admin_showsp td{
+    
+        border-bottom: 2px solid rgba(0, 0, 0, 0.214);
+        border-top: 2px solid rgba(0, 0, 0, 0.214);
+    }
+    .admin_showsp th{
+        /* border: 3px solid black; */
+        background-color: black;
+        color: white;
+    }
+    
+    .admin_showsp button{
+        width: 70px;
+        border-radius: 5px;
+        height: 40px;
+        cursor: pointer;
+        background-color: white;
+    }
+    
+    .admin_showsp button:hover{
+      background-color: #00791c;
+    }
+    .admin_showsp button:hover a{
+      color: white;
+    }
+
+    .admin_showsp input{
+      width: 30px;
+    }
+
+    
+    .btn-them{
+        height: 40px;
+        width: 150px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        background-color: #224229;
+        color: white;
+        cursor: pointer;
+        margin-top: -43px;  
+        float: right;
+        margin-right: 218px;
+    }
+
+    .btn-them a{
+      color: white;
+      text-decoration: none;
+  } 
+    
+    .btn-them a:hover{
+      color: black;
+    }
+    
+    
+    
+    
+/*       
+      form {
+          width: 550px;
+          margin: 20px;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+          margin-left: 470px;
+            padding-left: 65px;    
+        }
+      
+      
+        form h1{
+            margin-top: -5px;
+            text-align: center;
+            margin-left: -30px;
+        }
+      
+      form label{
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }  
+      
+      form input{
+        display: block;
+        margin-bottom: 5px;
+        height: 35px;
+        width: 500px;
+        border-radius: 5px;
+      }
+      
+      form button{
+        display: block;
+        margin-bottom: 5px;
+        height: 40px;
+        width: 508px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        background-color: #224229;
+        color: white;
+      }
+      
+      form button:hover{
+        color: black;
+      } */
+      
+     
+      
+      .admin-qlsp-header-qlsp{
+      background-color: #224229;
+      color: white;
+      height: 40px;
+      }
+      
+      .admin-qlsp-header-qlsp h3{
+        margin-left: 10px;
+      }
+
+
+      .sp_quantity{
+        width: 30px;
+      }
+
+
+
+      .btn-add-product {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-left: 10px;        
+      }
+      
+      .btn-add-product:hover {
+        background-color: #45a049;
+      }
+      
+      
+      .table-products {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      
+      .table-products th, .table-products td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+      
+      .table-products th {
+        background-color: #f2f2f2;
+      }
+      
+      .btn-edit, .btn-delete {
+        padding: 5px 10px;
+        margin: 2px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      
+      .btn-edit {
+        background-color: #4CAF50;
+        color: white;
+      }
+      
+      .btn-edit:hover {
+        background-color: #45a049;
+      }
+      
+      .btn-delete {
+        background-color: #f44336;
+        color: white;
+      }
+      
+      .btn-delete:hover {
+        background-color: #e53935;
+      }
+      
+      
+    
+      .an-hien-select {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        background-color: #f9f9f9;
+        color: #333;
+      
+      }
+      
+      .an-hien-select:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+      
+      .an-hien-option {
+        padding: 8px;
+        font-size: 16px;
+        color: #333;
+      
+      }
+
+
+      .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        margin-top: 20px;
+      }
+      
+      .form-title {
+        text-align: center;
+        /* margin-bottom: 20px; */
+      }
+      
+      .form-error {
+        color: red;
+        text-align: center;
+        /* margin-bottom: 10px; */
+      }
+      
+      /* .form-group {
+        margin-bottom: 15px;
+      } */
+      
+      .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      
+      .form-input {
+        width: 358px;
+        /* padding: 10px; */
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+      }
+      
+      .form-button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      
+      .form-button:hover {
+        background-color: rgba(0, 128, 0, 0.841);
+      }
+      
+
+.AnHien{
+  display: flex;
+}
+
+.AnHien input{
+  height: 10px;
+  width: 10px;
+}
+
